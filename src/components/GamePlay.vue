@@ -37,6 +37,15 @@ export default {
         }
       }
       return winner
+    },
+
+    draw() {
+      for (let i = 0; i < this.board.length; i++) {
+        if (this.board[i] === '') {
+          return false
+        }
+      }
+      return true
     }
   },
   methods: {
@@ -85,6 +94,9 @@ export default {
     <div class="wrapper">
       <div v-if="whoWin">
         <h2 class="winner">{{ whoWin }} wins!</h2>
+      </div>
+      <div v-else-if="draw">
+        <h2>It's a draw! Play again!</h2>
       </div>
       <div v-else>
         <h2>It's {{ player }}'s turn!</h2>
