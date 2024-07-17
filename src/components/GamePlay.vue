@@ -13,7 +13,7 @@ export default {
         [0, 4, 8],
         [2, 4, 6]
       ],
-      player: '✖️',
+      player: 'X',
       playerXMoves: [],
       playerOMoves: []
     }
@@ -29,10 +29,10 @@ export default {
 
         // Check if all elements of the combination are in playerXMoves or  playerOMoves
         if (combination.every((elem) => this.playerXMoves.includes(elem))) {
-          winner = '✖️' // Set winner to '✖️' if player X has this combination
+          winner = 'X' // Set winner to 'x' if player X has this combination
           break
         } else if (combination.every((elem) => this.playerOMoves.includes(elem))) {
-          winner = '⭕' // Set winner to '⭕' if player O has this combination
+          winner = 'O' // Set winner to 'o' if player O has this combination
           break
         }
       }
@@ -48,20 +48,20 @@ export default {
       this.board[index] = this.player
 
       // Depending on the current player, update their respective moves
-      if (this.player === '✖️') {
+      if (this.player === 'X') {
         this.playerXMoves.push(index) // Push the index to playerXMoves array
-        this.player = '⭕' // Switch to player O's turn
+        this.player = 'O' // Switch to player O's turn
       } else {
         this.playerOMoves.push(index) // Push the index to playerOMoves array
-        this.player = '✖️' // Switch to player X's turn
+        this.player = 'X' // Switch to player X's turn
       }
     },
     restartGame() {
       // Reset the game board to its initial state with empty cells
-      // Reset the player to start with '✖️' (player X)
+      // Reset the player to start with 'x' (player X)
       // Clear the arrays tracking moves for both players
       this.board = ['', '', '', '', '', '', '', '', '']
-      this.player = '✖️'
+      this.player = 'X'
       this.playerXMoves = []
       this.playerOMoves = []
     }
@@ -74,18 +74,23 @@ export default {
     <div class="board-wrapper">
       <div class="board">
         <div @click="updateCell(index)" class="cell" v-for="(cell, index) in board" :key="index">
-          {{ cell }}
+          <!-- Utilizzo di v-if per visualizzare l'icona corretta -->
+          <template v-if="cell === 'X'">
+            <i class="bi bi-x-lg x-icon"></i>
+          </template>
+          <template v-else-if="cell === 'O'">
+            <i class="bi bi-circle o-icon"></i>
+          </template>
         </div>
+
         <button class="refresh" @click="restartGame">
           <i class="bi bi-arrow-clockwise"></i>
         </button>
       </div>
     </div>
-
     <div v-if="whoWin">
       <h2 class="winner">{{ whoWin }} wins!</h2>
     </div>
-
     <div v-else>
       <h2>It's {{ player }}'s turn!</h2>
     </div>
@@ -127,7 +132,7 @@ h2 {
   right: -90px;
   bottom: 180px;
   font-size: 40px;
-  color: #7d49e5;
+  color: #547aff;
 
   background-color: transparent;
   border: none;
@@ -144,5 +149,13 @@ h2 {
 
 .winner {
   font-size: 50px;
+}
+
+.x-icon {
+  color: #547aff;
+}
+
+.o-icon {
+  color: #f94367;
 }
 </style>

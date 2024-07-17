@@ -32,10 +32,11 @@ button {
   margin: 10px;
   width: 80px;
   padding: 8px 0;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'sora', sans-serif;
   border: 2px solid gray;
   border-radius: 5px;
+  color: black;
 }
 
 button:hover {
@@ -59,6 +60,6 @@ button:visited {
 }
 
 .blue-btn {
-  background-color: #d1d1ff;
+  background-color: #b4c4ff;
 }
 </style>

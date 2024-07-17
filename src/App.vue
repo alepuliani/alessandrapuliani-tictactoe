@@ -61,7 +61,7 @@ h1 {
 }
 
 .blue {
-  color: #7d49e5;
+  color: #547aff;
 }
 
 @media screen and (min-width: 768px) {
