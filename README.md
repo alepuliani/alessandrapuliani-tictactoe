@@ -3,7 +3,12 @@ Welcome to Tic Tac Toe, a classic game implemented using Vue.js.
 
 ## Project Overview
 This project implements the game of Tic Tac Toe using Vue.js framework. 
-It includes three main views: Home, Rules, and Game Play. The Vue Router is used to navigate between these views. Here are the key features and design choices:
+
+It includes three main views: Home, Rules, and Game Play. 
+
+The Vue Router is used to navigate between these views. 
+
+Here are the key features and design choices:
 
 - **Vue Router**: Utilized to manage navigation between different views:
   - **Home**: Introduces the game and its objective.
