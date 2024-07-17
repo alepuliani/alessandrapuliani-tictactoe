@@ -23,17 +23,17 @@ Here are the key features and design choices:
 ## Getting Started
 To run the project locally, follow these steps:
 
-**1.Clone the repository:**
+**1. Clone the repository:**
 ```javascript
 git clone https://github.com/alepuliani/alessandrapuliani-tictactoe.git
 ```
-**2.Install dependencies:**
+**2. Install dependencies:**
 ```javascript
 cd alessandrapuliani-tictactoe
 npm install
 ```
 
-**3.Start the development server:**
+**3. Start the development server:**
 ```javascript
 npm run dev
 ```
