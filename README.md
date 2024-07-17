@@ -1,5 +1,7 @@
-# Tic Tac Toe
-Welcome to Tic Tac Toe, a classic game implemented using Vue.js.
+# TicTacToe
+Welcome to TicTacToe, a classic game implemented using Vue.js.
+
+🔗 [go to TicTacToe](https://alepuliani.github.io/alessandrapuliani-tictactoe/)
 
 ## Project Overview
 This project implements the game of Tic Tac Toe using Vue.js framework. 
