@@ -71,28 +71,28 @@ export default {
 
 <template>
   <div class="game-play">
-    <div class="board-wrapper">
-      <div class="board">
-        <div @click="updateCell(index)" class="cell" v-for="(cell, index) in board" :key="index">
-          <!-- Utilizzo di v-if per visualizzare l'icona corretta -->
-          <template v-if="cell === 'X'">
-            <i class="bi bi-x-lg x-icon"></i>
-          </template>
-          <template v-else-if="cell === 'O'">
-            <i class="bi bi-circle o-icon"></i>
-          </template>
-        </div>
-
-        <button class="refresh" @click="restartGame">
-          <i class="bi bi-arrow-clockwise"></i>
-        </button>
+    <div class="board">
+      <div @click="updateCell(index)" class="cell" v-for="(cell, index) in board" :key="index">
+        <!-- Utilizzo di v-if per visualizzare l'icona corretta -->
+        <template v-if="cell === 'X'">
+          <i class="bi bi-x-lg x-icon"></i>
+        </template>
+        <template v-else-if="cell === 'O'">
+          <i class="bi bi-circle o-icon"></i>
+        </template>
       </div>
     </div>
-    <div v-if="whoWin">
-      <h2 class="winner">{{ whoWin }} wins!</h2>
-    </div>
-    <div v-else>
-      <h2>It's {{ player }}'s turn!</h2>
+    <div class="wrapper">
+      <div v-if="whoWin">
+        <h2 class="winner">{{ whoWin }} wins!</h2>
+      </div>
+      <div v-else>
+        <h2>It's {{ player }}'s turn!</h2>
+      </div>
+
+      <button class="refresh" @click="restartGame">
+        <i class="bi bi-arrow-clockwise"></i>
+      </button>
     </div>
   </div>
 </template>
@@ -104,9 +104,6 @@ export default {
   align-items: center;
 }
 
-.board-wrapper {
-  position: relative;
-}
 .board {
   margin: 50px 0;
   display: grid;
@@ -127,12 +124,15 @@ export default {
 h2 {
   font-size: 30px;
 }
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
 .refresh {
-  position: absolute;
-  right: -90px;
-  bottom: 180px;
   font-size: 40px;
   color: #547aff;
+  margin-left: 20px;
 
   background-color: transparent;
   border: none;
